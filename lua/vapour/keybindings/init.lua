@@ -21,6 +21,9 @@ vim.api.nvim_set_keymap('n', '<C-l>', '<C-w>l', {noremap = true, silent = false}
 -- Switch buffer
 vim.api.nvim_set_keymap('n', '<Tab>', ':bnext<CR>', {noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', '<s-Tab>', ':bprevious<CR>', {noremap = true, silent = true})
+--
+-- Delete buffer
+vim.api.nvim_set_keymap('n', 'q', ':bdel<CR>', {noremap = true, silent = true})
 
 -- Visual mode -- 
 -- Indent line
