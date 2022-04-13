@@ -34,6 +34,8 @@ Vapour = {
   plugins = {
     zen_mode = {enabled = true, enable_rainbow_colors = false},
     twilight = {enabled = true, enable_rainbow_colors = false},
+    nvim_comment = {enabled = true},
+    illuminate = {enabled = true},
     indent_blankline = {enabled = true, enable_rainbow_colors = false},
     colorizer = {enabled = true},
     autopairs = {enabled = true},
@@ -94,7 +96,6 @@ Vapour = {
     nvim_tree = {enabled = true, view_width = 25},
     dial = {enabled = true},
     null_ls = {enabled = true},
-    nvim_comment = {enabled = true},
     presence = {enabled = true},
     lsp = {
       enabled = true,

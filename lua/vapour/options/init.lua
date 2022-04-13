@@ -1,4 +1,6 @@
 vim.cmd('filetype plugin indent on')
+vim.cmd('set relativenumber')
+
 vim.o.shortmess = vim.o.shortmess .. 'c'
 vim.o.hidden = true
 vim.o.whichwrap = 'b,s,<,>,[,],h,l'
@@ -17,7 +19,7 @@ vim.o.writebackup = false
 vim.o.updatetime = 300
 vim.o.timeoutlen = 100
 vim.o.clipboard = "unnamedplus"
-vim.o.hlsearch = false
+vim.o.hlsearch = true
 vim.o.ignorecase = true
 vim.o.scrolloff = 3
 vim.o.sidescrolloff = 5

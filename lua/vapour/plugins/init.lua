@@ -84,6 +84,7 @@ return packer.startup(function(use)
   use {'windwp/nvim-ts-autotag', disable = not is_enabled('treesitter'), after = 'nvim-treesitter'}
   use {'RRethy/nvim-treesitter-endwise', disable = not is_enabled('treesitter'), after = 'nvim-treesitter'}
   use {'RRethy/nvim-treesitter-textsubjects', disable = not is_enabled('treesitter'), after = 'nvim-treesitter'}
+  use {'RRethy/vim-illuminate', after='illuminate'}
 
   -- Colorschemes
   use {'rose-pine/neovim', as = 'rose-pine', opt = true}
