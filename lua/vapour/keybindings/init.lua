@@ -51,4 +51,6 @@ vim.cmd('inoremap <expr> <c-k> (\"\\<C-p>\")')
 -- Trigger copilot suggesting
 vim.cmd('imap <silent><script><expr> <C-q> copilot#Accept("")')
 vim.cmd("let g:copilot_no_tab_map = v:true")
+
+--vim.cmd("vnoremap // y/\\V<C-R>=escape(@\",'/\')<CR><CR>")
 --vim.cmd("vnoremap // y/\\V<C-R>=escape(@\",'/\')<CR><CR>")
