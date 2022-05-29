@@ -1,4 +1,4 @@
-local on_attach = function(bufnr, client)
+local on_attach = function(client, bufnr)
   local opts = { noremap = true, silent = true }
   -- Enable completion triggered by <c-x><c-o>
   -- vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
@@ -24,25 +24,25 @@ if Vapour.plugins.lsp.enabled then
   local lsp_installer = Vapour.utils.plugins.require('nvim-lsp-installer')
   lsp_installer.on_server_ready(function(server)
     local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol
-                                                                         .make_client_capabilities())
-    local opts = {capabilities = capabilities, on_attach = on_attach}
+    .make_client_capabilities())
+    local opts = { capabilities = capabilities, on_attach = on_attach }
     if Vapour.language_servers[server.name] then
       opts = Vapour.language_servers[server.name].config(opts)
     end
-    
-    -- local lspconfig = require('lspconfig')
-    -- lspconfig[server.name].setup {on_attach = on_attach}
+
+    local lspconfig = Vapour.utils.plugins.require('lspconfig')
+    lspconfig[server.name].setup { on_attach = on_attach }
     server:setup(opts)
   end)
 end
 
 -- Diagnostics
 
-local signs = {Error = " ", Warn = " ", Hint = " ", Info = " "}
+local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
 
 for type, icon in pairs(signs) do
   local hl = "DiagnosticSign" .. type
-  vim.fn.sign_define(hl, {text = icon, texthl = hl, numhl = ""})
+  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 end
 
 -- Show icons in autocomplete
@@ -51,10 +51,8 @@ require('vim.lsp.protocol').CompletionItemKind = {
   '﬌ ', ' ', ' ', '', ' ', ' ', ' ', ' ', '', '', '<>'
 }
 
-
-vim.lsp.handlers['textDocument/publishDiagnostics'] =
-    vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-      underline = true,
-      virtual_text = {spacing = 5, severity_limit = 'Warning'},
-      update_in_insert = true
-    })
+vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+  underline = true,
+  virtual_text = { spacing = 5, severity_limit = 'Warning' },
+  update_in_insert = true
+})

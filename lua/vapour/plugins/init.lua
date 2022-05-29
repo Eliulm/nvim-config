@@ -27,6 +27,7 @@ end
 return packer.startup(function(use)
   use 'wbthomason/packer.nvim'
   -- Syntax Highlighting and Visual Plugins
+
   use {
     'norcalli/nvim-colorizer.lua',
     disable = not is_enabled('colorizer'),
@@ -70,7 +71,10 @@ return packer.startup(function(use)
     event = 'BufRead',
     config = "require('gitsigns-config')"
   }
-  use { 'kyazdani42/nvim-web-devicons', event = 'BufRead' }
+  use {
+    'kyazdani42/nvim-web-devicons',
+    disable = not is_enabled('webDevicons'),
+  }
 
   -- Tree-Sitter
   use {
@@ -83,6 +87,7 @@ return packer.startup(function(use)
   use { 'p00f/nvim-ts-rainbow', disable = not is_enabled('treesitter'), after = 'nvim-treesitter' }
   use { 'windwp/nvim-ts-autotag', disable = not is_enabled('treesitter'), after = 'nvim-treesitter' }
   use { 'RRethy/nvim-treesitter-endwise', disable = not is_enabled('treesitter'), after = 'nvim-treesitter' }
+  
   use { 'RRethy/nvim-treesitter-textsubjects', disable = not is_enabled('treesitter'), after = 'nvim-treesitter' }
   use { 'RRethy/vim-illuminate' }
 
@@ -97,7 +102,7 @@ return packer.startup(function(use)
   use { 'catppuccin/nvim', as = 'catppuccin', opt = true }
 
   -- LSP and Autocomplete
-  use { 'neovim/nvim-lspconfig', event = "BufRead", disable = not is_enabled('lsp') }
+  use { 'neovim/nvim-lspconfig', disable = not is_enabled('lsp') }
   use { 'williamboman/nvim-lsp-installer', disable = not is_enabled('lsp') }
   use { 'onsails/lspkind-nvim', disable = not is_enabled('lsp') }
   use {
@@ -122,7 +127,7 @@ return packer.startup(function(use)
 
   -- Terminal Integration
   use {
-    'akinsho/nvim-toggleterm.lua',
+    'akinsho/toggleterm.nvim',
     disable = not is_enabled('toggleterm'),
     config = 'require"toggleterm-config"'
   }
@@ -171,5 +176,7 @@ return packer.startup(function(use)
     config = "require'shade-config'",
     disable = not is_enabled('shade'),
   }
+
   for _, plugin in pairs(Vapour.plugins.user) do use(plugin) end
-end)
+end
+)

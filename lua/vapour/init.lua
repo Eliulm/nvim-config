@@ -1,6 +1,5 @@
 -- Vapour object to use for namespacing
-Vapour = {
-  options = { tabwidth = 2 },
+Vapour = { options = { tabwidth = 2 },
   language_servers = {
     sumneko_lua = {
       config = function(opts)
@@ -44,6 +43,7 @@ Vapour = {
     staline = { enabled = true, theme = 'simple' },
     stabline = { enabled = true },
     dashboard = { enabled = true },
+    webDevicons = { enabled = true },
     toggleterm = {
       enabled = true,
       toggle_float = function()
