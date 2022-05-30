@@ -38,7 +38,7 @@ vim.api.nvim_set_keymap("v", "<A-j>", ":m .+1<CR>==", { noremap = true, silent =
 vim.api.nvim_set_keymap("v", "<A-k>", ":m .-2<CR>==", { noremap = true, silent = false })
 vim.api.nvim_set_keymap("v", "p", '"_dP', { noremap = true, silent = false })
 
--- Visual block --
+-- Visual block
 vim.api.nvim_set_keymap('x', 'K', ':move \'<-2<CR>gv-gv', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('x', 'J', ':move \'>+1<CR>gv-gv', { noremap = true, silent = true })
 
@@ -51,6 +51,7 @@ vim.cmd('inoremap <expr> <c-k> (\"\\<C-p>\")')
 -- Trigger copilot suggesting
 vim.cmd('imap <silent><script><expr> <C-q> copilot#Accept("")')
 vim.cmd("let g:copilot_no_tab_map = v:true")
+
 
 --vim.cmd("vnoremap // y/\\V<C-R>=escape(@\",'/\')<CR><CR>")
 --vim.cmd("vnoremap // y/\\V<C-R>=escape(@\",'/\')<CR><CR>")

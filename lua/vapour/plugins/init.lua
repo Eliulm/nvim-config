@@ -124,7 +124,7 @@ return packer.startup(function(use)
     config = "require'autopairs-config'",
     disable = not is_enabled('autopairs')
   }
-  use { "b0o/schemastore.nvim", after = 'nvim-lsp-installer', disable = not is_enabled('lsp') }
+  use { "b0o/schemastore.nvim", disable = not is_enabled('lsp') }
 
   -- Terminal Integration
   use {
