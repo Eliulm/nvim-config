@@ -87,7 +87,7 @@ return packer.startup(function(use)
   use { 'p00f/nvim-ts-rainbow', disable = not is_enabled('treesitter'), after = 'nvim-treesitter' }
   use { 'windwp/nvim-ts-autotag', disable = not is_enabled('treesitter'), after = 'nvim-treesitter' }
   use { 'RRethy/nvim-treesitter-endwise', disable = not is_enabled('treesitter'), after = 'nvim-treesitter' }
-  
+
   use { 'RRethy/nvim-treesitter-textsubjects', disable = not is_enabled('treesitter'), after = 'nvim-treesitter' }
   use { 'RRethy/vim-illuminate' }
 
@@ -99,6 +99,7 @@ return packer.startup(function(use)
   use { 'folke/tokyonight.nvim', opt = true }
   use { 'dracula/vim', as = 'dracula', opt = true }
   use { 'tiagovla/tokyodark.nvim', opt = true }
+  use { "projekt0n/github-nvim-theme", as = 'github-theme', opt = true }
   use { 'catppuccin/nvim', as = 'catppuccin', opt = true }
 
   -- LSP and Autocomplete

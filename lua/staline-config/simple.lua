@@ -90,6 +90,19 @@ local get_colors = function()
       white = "#f8f8f2"
     }
     return colors
+  elseif Vapour.settings.colorscheme == 'github-theme' then
+    local colors = {
+      lightbg = "#44475a",
+      black = '#282a36',
+      red = "#ff5555",
+      green = "#50fa7b",
+      yellow = "#f1fa8c",
+      blue = "#6272a4",
+      purple = "#bd93f9",
+      cyan = "#8be9fd",
+      white = "#f8f8f2"
+    }
+    return colors
   end
 end
 
@@ -114,16 +127,16 @@ local percentage = function()
   return chars[index]
 end
 local time = function()
-  return os.date("%a │ %H:%M %x")
+  return os.date("%a │ %H:%H %x")
 end
 staline.setup {
   sections = {
     left = {
-      'mode', ' ', {'StalineBranch', 'branch'}
+      'mode', ' ', { 'StalineBranch', 'branch' }
       -- branch,
     },
-    mid = {{'StalineName', 'file_name'}},
-    right = {'-lsp', ' ', 'cool_symbol', '', time, '  ', percentage}
+    mid = { { 'StalineName', 'file_name' } },
+    right = { '-lsp', ' ', 'cool_symbol', '', time, '  ', percentage }
   },
   defaults = {
     true_colors = true, -- LSP highlighing
@@ -155,11 +168,11 @@ staline.setup {
   },
   mode_colors = my_colors, -- Change mode colors
   special_table = {
-    NvimTree = {'File Explorer', ' '},
-    packer = {'Packer', ' '},
-    TelescopePrompt = {'Telescope', ' '}
+    NvimTree = { 'File Explorer', ' ' },
+    packer = { 'Packer', ' ' },
+    TelescopePrompt = { 'Telescope', ' ' }
   },
-  lsp_symbols = {Error = " ", Info = " ", Warn = " ", Hint = " "}
+  lsp_symbols = { Error = " ", Info = " ", Warn = " ", Hint = " " }
 }
 vim.cmd('hi StalineBranch guifg=' .. colors.purple)
 vim.cmd('hi StalineName guifg=' .. colors.cyan)

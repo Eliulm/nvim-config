@@ -131,8 +131,8 @@ Vapour = { options = { tabwidth = 2 },
   settings = {
     -- If true, :w -> :w!
     always_force_write = false,
-    colorscheme = 'rose-pine',
-    lualine_colorscheme = 'rose-pine',
+    colorscheme = 'github-theme',
+    lualine_colorscheme = 'github-theme',
     transparent_bg = false
   }
 }
